@@ -21,7 +21,7 @@ jobs:
             -o /tmp/vosk-model.zip
           unzip -q /tmp/vosk-model.zip -d /tmp/vosk-model
           cp -R /tmp/vosk-model/vosk-model-small-tr-0.3/. app/src/main/assets/model/
-          uuidgen > app/src/main/assets/model/uuid
+          cat /proc/sys/kernel/random/uuid > app/src/main/assets/model/uuid
       - name: Java 17 kur
         uses: actions/setup-java@v4
         with:
