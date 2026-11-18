@@ -4,6 +4,11 @@ plugins {
 }
 
 android {
+packaging {
+    jniLibs {
+        useLegacyPackaging = true
+    }
+}
     namespace = "com.asena.assistant"
     compileSdk = 35
 
