@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Depoyu indir
         uses: actions/checkout@v4
-
+            - name: Türkçe ses modelini indir
+        run: |
+          mkdir -p app/src/main/assets/model
+          curl -L --fail --retry 3 \
+            https://alphacephei.com/vosk/models/vosk-model-small-tr-0.3.zip \
+            -o /tmp/vosk-model.zip
+          unzip -q /tmp/vosk-model.zip -d /tmp/vosk-model
+          cp -R /tmp/vosk-model/vosk-model-small-tr-0.3/. app/src/main/assets/model/
       - name: Java 17 kur
         uses: actions/setup-java@v4
         with:
